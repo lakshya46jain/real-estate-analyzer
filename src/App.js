@@ -11,7 +11,7 @@ const theme = createTheme({
       main: '#00796b', // Teal color for primary
     },
     secondary: {
-      main: '#00796b', // Teal color for primary
+      main: '#00796b', // Teal color for secondary
     },
     background: {
       default: '#d0f0c0', // Whitish green background color
@@ -90,7 +90,7 @@ function App() {
               Third Button
             </Button>
             <Button variant="contained" color="secondary" style={{ marginRight: theme.spacing, backgroundColor: theme.palette.primary.main }}>
-              Fourth Button
+              Registration
             </Button>
           </div>
 
@@ -124,7 +124,6 @@ function App() {
               </GoogleMap>
             </div>
           )}
-
         </Container>
       </div>
     </ThemeProvider>
