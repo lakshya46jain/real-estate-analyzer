@@ -93,12 +93,13 @@ function App() {
               <Button color="inherit">Projects</Button>
               <Button color="inherit">Localities</Button>
               <Button color="inherit">Developers</Button>
+              <Button color="inherit">Join Us!</Button>
             </Box>
           </Toolbar>
         </AppBar>
 
         {/* Main Layout */}
-        <Grid container spacing={0}>
+        <Grid container spacing={0} sx={{ alignItems: 'center' }}>
           {/* Left Sidebar */}
           <Grid item xs={12} md={4} sx={{ padding: theme.spacing(6) }}>
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

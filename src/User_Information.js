@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Typography, Container, Button, TextField, Grid, Paper, Box } from '@mui/material';
+import { Typography, Container, Button, TextField, Grid, Paper, Box } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 // Custom theme for the real estate analyzer
