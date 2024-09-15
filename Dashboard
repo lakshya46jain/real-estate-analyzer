@@ -1,66 +1,66 @@
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
-const fs = require('fs');
-app.use(bodyParser.json());
+// const express = require('express');
+// const app = express();
+// const bodyParser = require('body-parser');
+// const fs = require('fs');
+// app.use(bodyParser.json());
 
-// Load data from JSON file
-let data = require('./data.json');
+// // Load data from JSON file
+// let data = require('./data.json');
 
-// Define API endpoint to retrieve all data
-app.get('/api/data', (req, res) => {
-  res.json(data);
-});
+// // Define API endpoint to retrieve all data
+// app.get('/api/data', (req, res) => {
+//   res.json(data);
+// });
 
-// Define API endpoint to retrieve data by city
-app.get('/api/data/city/:city', (req, res) => {
-  const city = req.params.city;
-  const cityData = data.filter(item => item.City === city);
-  res.json(cityData);
-});
+// // Define API endpoint to retrieve data by city
+// app.get('/api/data/city/:city', (req, res) => {
+//   const city = req.params.city;
+//   const cityData = data.filter(item => item.City === city);
+//   res.json(cityData);
+// });
 
-// Define API endpoint to retrieve data by property type
-app.get('/api/data/property_type/:propertyType', (req, res) => {
-  const propertyType = req.params.propertyType;
-  const propertyTypeData = data.filter(item => item['Property Type'] === propertyType);
-  res.json(propertyTypeData);
-});
+// // Define API endpoint to retrieve data by property type
+// app.get('/api/data/property_type/:propertyType', (req, res) => {
+//   const propertyType = req.params.propertyType;
+//   const propertyTypeData = data.filter(item => item['Property Type'] === propertyType);
+//   res.json(propertyTypeData);
+// });
 
-// Define API endpoint to add new data
-app.post('/api/data', (req, res) => {
-  const newData = req.body;
-  data.push(newData);
-  fs.writeFileSync('./data.json', JSON.stringify(data, null, 2));
-  res.json(newData);
-});
+// // Define API endpoint to add new data
+// app.post('/api/data', (req, res) => {
+//   const newData = req.body;
+//   data.push(newData);
+//   fs.writeFileSync('./data.json', JSON.stringify(data, null, 2));
+//   res.json(newData);
+// });
 
-// Define API endpoint to update existing data
-app.put('/api/data/:city', (req, res) => {
-  const city = req.params.city;
-  const updatedData = req.body;
-  const index = data.findIndex(item => item.City === city);
-  if (index !== -1) {
-    data[index] = updatedData;
-    fs.writeFileSync('./data.json', JSON.stringify(data, null, 2));
-    res.json(updatedData);
-  } else {
-    res.status(404).json({ error: 'City not found' });
-  }
-});
+// // Define API endpoint to update existing data
+// app.put('/api/data/:city', (req, res) => {
+//   const city = req.params.city;
+//   const updatedData = req.body;
+//   const index = data.findIndex(item => item.City === city);
+//   if (index !== -1) {
+//     data[index] = updatedData;
+//     fs.writeFileSync('./data.json', JSON.stringify(data, null, 2));
+//     res.json(updatedData);
+//   } else {
+//     res.status(404).json({ error: 'City not found' });
+//   }
+// });
 
-// Define API endpoint to delete data
-app.delete('/api/data/:city', (req, res) => {
-  const city = req.params.city;
-  const index = data.findIndex(item => item.City === city);
-  if (index !== -1) {
-    data.splice(index, 1);
-    fs.writeFileSync('./data.json', JSON.stringify(data, null, 2));
-    res.json({ message: 'Data deleted' });
-  } else {
-    res.status(404).json({ error: 'City not found' });
-  }
-});
+// // Define API endpoint to delete data
+// app.delete('/api/data/:city', (req, res) => {
+//   const city = req.params.city;
+//   const index = data.findIndex(item => item.City === city);
+//   if (index !== -1) {
+//     data.splice(index, 1);
+//     fs.writeFileSync('./data.json', JSON.stringify(data, null, 2));
+//     res.json({ message: 'Data deleted' });
+//   } else {
+//     res.status(404).json({ error: 'City not found' });
+//   }
+// });
 
-app.listen(3000, () => {
-  console.log('Server started on port 3000');
-});
+// app.listen(3000, () => {
+//   console.log('Server started on port 3000');
+// });

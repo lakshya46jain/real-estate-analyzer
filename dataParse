@@ -1,39 +1,39 @@
-const fs = require('fs');
+// const fs = require('fs');
 
-// Read the JSON file
-fs.readFile('data.json', (err, data) => {
-  if (err) {
-    console.error(err);
-    return;
-  }
+// // Read the JSON file
+// fs.readFile('data.json', (err, data) => {
+//   if (err) {
+//     console.error(err);
+//     return;
+//   }
 
-  // Parse the JSON data
-  const jsonData = JSON.parse(data);
+//   // Parse the JSON data
+//   const jsonData = JSON.parse(data);
 
-  // Create an array to store the parsed data
-  const parsedData = [];
+//   // Create an array to store the parsed data
+//   const parsedData = [];
 
-  // Loop through each item in the JSON data
-  jsonData.forEach((item) => {
-    // Create a new object to store the parsed data
-    const parsedItem = {};
+//   // Loop through each item in the JSON data
+//   jsonData.forEach((item) => {
+//     // Create a new object to store the parsed data
+//     const parsedItem = {};
 
-    // Loop through each property in the item
-    Object.keys(item).forEach((key) => {
-      // Get the value of the property
-      const value = item[key];
+//     // Loop through each property in the item
+//     Object.keys(item).forEach((key) => {
+//       // Get the value of the property
+//       const value = item[key];
 
-      // Convert the property name to camelCase
-      const camelCaseKey = key.replace(/_/g, ' ').replace(/\s+/g, ' ').trim().replace(/\s/g, '');
+//       // Convert the property name to camelCase
+//       const camelCaseKey = key.replace(/_/g, ' ').replace(/\s+/g, ' ').trim().replace(/\s/g, '');
 
-      // Add the property to the parsed item
-      parsedItem[camelCaseKey] = value;
-    });
+//       // Add the property to the parsed item
+//       parsedItem[camelCaseKey] = value;
+//     });
 
-    // Add the parsed item to the parsed data array
-    parsedData.push(parsedItem);
-  });
+//     // Add the parsed item to the parsed data array
+//     parsedData.push(parsedItem);
+//   });
 
-  // Print the parsed data
-  console.log(parsedData);
-});
+//   // Print the parsed data
+//   console.log(parsedData);
+// });
