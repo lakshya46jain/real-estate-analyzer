@@ -1,50 +1,34 @@
-# React + TypeScript + Vite
+# Real Estate Analyzer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The **Real Estate Analyzer** is a web application designed to predict property prices based on a variety of factors such as location, house size, number of bedrooms, and more. Inspired by the movie **The Big Short**, which explores the 2007-2008 financial crisis and highlights the importance of accurate financial forecasting and analysis, this app aims to provide a tool for predicting real estate prices. By using **Azure Machine Learning** and real estate data, the app offers accurate price estimates for residential properties. Users can input property details like the number of bedrooms, bathrooms, lot size, and location (state, city, zip code), and receive an estimated price based on a machine learning model trained on historical data.
 
-Currently, two official plugins are available:
+## Data
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Date Accessed:** December 26, 2024
 
-## Expanding the ESLint configuration
+- **Source:** https://www.kaggle.com/datasets/ahmedshahriarsakib/usa-real-estate-dataset
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- The **original dataset** contains **2,000,000+ entries** with data for **20,000+ cities**, **45+ states**, and **30,000+ zip codes** for US real estate data.
 
-- Configure the top-level `parserOptions` property like this:
+- The dataset used for training was **pre-processed** to include data for the **top 10 cities** of all **45+ states**, focusing on the **top 10 zip codes** for each of those cities.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Future Plans
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- Due to **computing limitations**, the dataset had to be cut short. In future versions of this application, we aim to include a higher number of entries to improve accuracy.
+  
+- In the **current machine learning model**, the data is trained to use the following features:
+  - **Location** (state, city, zip code)
+  - **Number of bedrooms**
+  - **Number of bathrooms**
+  - **Acre lot** (total land area)
+  - **House size** (living space/building area)
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+  In future models, we aim to include additional features, such as:
+  - Proximity to **schools** and their **rankings**
+  - Proximity to **police stations** and **hospitals**
+  - **Economic factors** such as **inflation**, to produce a more accurate prediction.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **Potential datasets that can be used:**
+    - [US County Data (2018-2021)](https://www.kaggle.com/datasets/demche/us-county-data-2018-2021) - https://www.kaggle.com/datasets/demche/us-county-data-2018-2021
+    - [US Schools Dataset](https://www.kaggle.com/datasets/andrewmvd/us-schools-dataset) - https://www.kaggle.com/datasets/andrewmvd/us-schools-dataset
+    - [US Hospital Locations](https://www.kaggle.com/datasets/andrewmvd/us-hospital-locations) - https://www.kaggle.com/datasets/andrewmvd/us-hospital-locations
