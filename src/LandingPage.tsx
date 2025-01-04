@@ -24,7 +24,22 @@ function LandingPage() {
             margin: "3.5px",
             boxSizing: "border-box",
           }}
-        ></div>
+        >
+          {" "}
+          <h1
+            style={{
+              color: "#FFFFFF",
+              paddingTop: "20px",
+              fontSize: "30px",
+              lineHeight: "1",
+              fontWeight: "bolder", // Extra bold text
+              fontFamily: "'League Spartan', sans-serif",
+              padding: "17px 10px 10px 25px",
+            }}
+          >
+            Real Estate Analyzer
+          </h1>
+        </div>
 
         {/* Body */}
         <div
