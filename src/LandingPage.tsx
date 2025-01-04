@@ -1,4 +1,6 @@
-import cityScape from "/city_scape.png";
+import CityScape from "./components/CityScape";
+import GetStartedButton from "./components/GetStartedButton";
+import LandingText from "./components/LandingText";
 
 function LandingPage() {
   return (
@@ -29,6 +31,9 @@ function LandingPage() {
           style={{
             maxWidth: "100vw",
             flex: 1,
+            borderColor: "#0B2564",
+            borderWidth: "3px",
+            borderStyle: "solid",
             background: "linear-gradient(to bottom, #0B2564, #1E1B18)",
             borderRadius: "40px 40px 0px 0px",
             margin: "0px 3.5px 0px 3.5px",
@@ -41,42 +46,11 @@ function LandingPage() {
             paddingBottom: "400px", // Space from the bottom (to avoid overlap with image)
           }}
         >
-          <h1
-            style={{
-              color: "#FFFFFF", // White text color
-              textAlign: "center", // Center the text
-              paddingTop: "20px",
-              margin: "0", // Remove default margin
-              fontSize: "calc(3vw + 22px)",
-              lineHeight: "1",
-              fontWeight: "bolder", // Extra bold text
-              fontFamily: "'League Spartan', sans-serif",
-            }}
-          >
-            <div>Explore your new home</div>
-            <div>
-              <span>with us, </span>
-              <span
-                style={{
-                  color: "#DE6C83", // Separate color for "at the right price"
-                  fontWeight: "bolder", // Extra bold text for this part
-                }}
-              >
-                at the right price
-              </span>
-            </div>
-          </h1>
+          <LandingText />
 
-          <img
-            src={cityScape}
-            alt="City Scape"
-            style={{
-              position: "absolute", // Position the image at the bottom
-              bottom: "0", // Fix the image at the bottom of the div
-              maxWidth: "100%", // Make the image take the full width
-              height: "auto", // Keep the aspect ratio intact
-            }}
-          />
+          <GetStartedButton />
+
+          <CityScape />
         </div>
       </div>
     </>
