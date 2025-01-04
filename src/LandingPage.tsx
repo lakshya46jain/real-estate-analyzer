@@ -1,6 +1,6 @@
 import cityScape from "/city_scape.png";
 
-function App() {
+function LandingPage() {
   return (
     <>
       <div
@@ -83,4 +83,4 @@ function App() {
   );
 }
 
-export default App;
+export default LandingPage;
