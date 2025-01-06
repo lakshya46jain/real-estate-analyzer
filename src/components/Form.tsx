@@ -1,18 +1,16 @@
 import InputField from "./InputField";
-import LocationSearchBar from "./LocationSearchBar";
-import Output from "./Output";
 
 function Form() {
   return (
     <div>
       <InputField
         id="bedrooms"
-        placeholder="Number of bedrooms"
+        placeholder="Number of Bedrooms"
         label="Bedroom"
       />
       <InputField
         id="bathrooms"
-        placeholder="Number of bathrooms"
+        placeholder="Number of Bathrooms"
         label="Bathroom"
       />
       <InputField
@@ -25,8 +23,6 @@ function Form() {
         placeholder="Carpet Area (Optional)"
         label="sq ft."
       />
-      <LocationSearchBar />
-      <Output />
     </div>
   );
 }

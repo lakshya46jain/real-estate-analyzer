@@ -15,8 +15,8 @@ The **Real Estate Analyzer** is a web application designed to predict property p
 ## Future Plans
 
 - Due to **computing limitations**, the dataset had to be cut short. In future versions of this application, we aim to include a higher number of entries to improve accuracy.
-  
 - In the **current machine learning model**, the data is trained to use the following features:
+
   - **Location** (state, city, zip code)
   - **Number of bedrooms**
   - **Number of bathrooms**
@@ -24,11 +24,20 @@ The **Real Estate Analyzer** is a web application designed to predict property p
   - **House size** (living space/building area)
 
   In future models, we aim to include additional features, such as:
+
   - Proximity to **schools** and their **rankings**
   - Proximity to **police stations** and **hospitals**
   - **Economic factors** such as **inflation**, to produce a more accurate prediction.
 
 - **Potential datasets that can be used:**
-    - [US County Data (2018-2021)](https://www.kaggle.com/datasets/demche/us-county-data-2018-2021) - https://www.kaggle.com/datasets/demche/us-county-data-2018-2021
-    - [US Schools Dataset](https://www.kaggle.com/datasets/andrewmvd/us-schools-dataset) - https://www.kaggle.com/datasets/andrewmvd/us-schools-dataset
-    - [US Hospital Locations](https://www.kaggle.com/datasets/andrewmvd/us-hospital-locations) - https://www.kaggle.com/datasets/andrewmvd/us-hospital-locations
+  - [US County Data (2018-2021)](https://www.kaggle.com/datasets/demche/us-county-data-2018-2021) - https://www.kaggle.com/datasets/demche/us-county-data-2018-2021
+  - [US Schools Dataset](https://www.kaggle.com/datasets/andrewmvd/us-schools-dataset) - https://www.kaggle.com/datasets/andrewmvd/us-schools-dataset
+  - [US Hospital Locations](https://www.kaggle.com/datasets/andrewmvd/us-hospital-locations) - https://www.kaggle.com/datasets/andrewmvd/us-hospital-locations
+
+## TODO
+
+- Update the Google Maps display to refresh when a location is entered in the Location Search bar.
+
+- Integrate PostgreSQL to log data whenever the user clicks the search button.
+
+- Link the Microsoft Azure-deployed Machine Learning Model to generate a price estimate based on the user-provided data.
