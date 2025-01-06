@@ -5,6 +5,7 @@ import Map from "./components/Map";
 import LocationSearchBar from "./components/LocationSearchBar";
 import Output from "./components/Output";
 import { LoadScript } from "@react-google-maps/api";
+import googleMapsApiKey from "./API_Keys.tsx";
 
 function PropertyDetailsPage() {
   const [mapCenter, setMapCenter] = useState({
@@ -13,10 +14,7 @@ function PropertyDetailsPage() {
   });
 
   return (
-    <LoadScript
-      googleMapsApiKey="AIzaSyA1gJwKnT0E0EKLDhMAGo0tTax13m-i5tw"
-      libraries={["places"]}
-    >
+    <LoadScript googleMapsApiKey={googleMapsApiKey} libraries={["places"]}>
       <div
         style={{
           display: "flex", // Enable flexbox

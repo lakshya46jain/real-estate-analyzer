@@ -3,6 +3,7 @@ import GooglePlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from "react-google-places-autocomplete";
+import googleMapsApiKey from "../API_Keys";
 
 interface Location {
   lat: number;
@@ -40,7 +41,7 @@ function LocationSearchBar({
   return (
     <div className="input-group mb-3">
       <GooglePlacesAutocomplete
-        apiKey="AIzaSyA1gJwKnT0E0EKLDhMAGo0tTax13m-i5tw"
+        apiKey={googleMapsApiKey}
         selectProps={{
           value: address,
           onChange: handleSelect,
