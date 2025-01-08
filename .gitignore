@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 
 src/API_Keys.tsx
+.env
