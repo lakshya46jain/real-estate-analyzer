@@ -36,6 +36,4 @@ The **Real Estate Analyzer** is a web application designed to predict property p
 
 ## TODO
 
-- Update the Google Maps display to refresh when a location is entered in the Location Search bar.
-
 - Link the Microsoft Azure-deployed Machine Learning Model to generate a price estimate based on the user-provided data.

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import CityScape from "./components/CityScape";
 import Form from "./components/Form";
 import Map from "./components/Map";
@@ -9,15 +9,65 @@ import googleMapsApiKey from "./API_Keys.tsx";
 import axios from "axios";
 
 function PropertyDetailsPage() {
+  // Coordinates of Virginia Tech
   const [mapCenter, setMapCenter] = useState({
-    lat: 37.229572,
-    lng: -80.41394,
+    lat: 37.2284,
+    lng: -80.4234,
   });
 
   const [bedroomValue, setBedroomValue] = useState("");
   const [bathroomValue, setBathroomValue] = useState("");
   const [acreLotValue, setAcreLotValue] = useState("");
   const [houseSizeValue, setHouseSizeValue] = useState("");
+
+  const searchBoxRef = useRef<google.maps.places.SearchBox | null>(null);
+
+  const [cityValue, setCity] = useState<string>("");
+  const [stateValue, setState] = useState<string>("");
+  const [zipCodeValue, setZipCode] = useState<string>("");
+
+  const handlePlacesChanged = () => {
+    const searchBox = searchBoxRef.current;
+    if (searchBox) {
+      const places = searchBox.getPlaces();
+      if (places && places.length > 0) {
+        const place = places[0];
+        const latitude = place.geometry?.location?.lat();
+        const longitude = place.geometry?.location?.lng();
+
+        let city = "";
+        let state = "";
+        let zipCode = "";
+
+        // Check if address_components is defined
+        if (place.address_components) {
+          place.address_components.forEach((component) => {
+            const types = component.types;
+            if (types.includes("locality")) {
+              city = component.long_name;
+            }
+            if (types.includes("administrative_area_level_1")) {
+              state = component.long_name;
+            }
+            if (types.includes("postal_code")) {
+              zipCode = component.long_name;
+            }
+          });
+        }
+
+        setCity(city);
+        setState(state);
+        setZipCode(zipCode);
+
+        if (latitude && longitude) {
+          setMapCenter({
+            lat: latitude,
+            lng: longitude,
+          });
+        }
+      }
+    }
+  };
 
   return (
     <LoadScript googleMapsApiKey={googleMapsApiKey} libraries={["places"]}>
@@ -126,7 +176,10 @@ function PropertyDetailsPage() {
                     setHouseSizeValue(event.target.value);
                   }}
                 />
-                <LocationSearchBar setMapCenter={setMapCenter} />
+                <LocationSearchBar
+                  onLoad={(ref) => (searchBoxRef.current = ref)}
+                  onPlacesChanged={handlePlacesChanged}
+                />
                 <Output
                   buttonClick={async () => {
                     try {
@@ -137,13 +190,14 @@ function PropertyDetailsPage() {
                           bath: Number(bathroomValue),
                           acre_lot: parseFloat(acreLotValue),
                           house_size: parseFloat(houseSizeValue),
-                          city: "Blacksburg",
-                          state: "Virginia",
-                          zip_code: "24060",
+                          city: cityValue,
+                          state: stateValue,
+                          zip_code: zipCodeValue,
                           predicted_price: 0,
                         }
                       );
-                      console.log("Client added:", response.data); // Log the response
+                      console.log("Analyzer data log added:", response.data); // Log the response
+                      alert("Analyzer data log added");
                     } catch (error) {
                       console.log("Error adding analyzer log:", error);
                     }

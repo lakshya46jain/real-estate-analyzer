@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { GoogleMap } from "@react-google-maps/api";
 
 interface MapProps {
@@ -8,25 +8,17 @@ interface MapProps {
 
 const Map: React.FC<MapProps> = ({ center, zoom }) => {
   const [map, setMap] = useState<google.maps.Map | null>(null);
-  const mapRef = useRef<HTMLDivElement | null>(null);
 
+  // Effect to initialize the map and marker when the map is ready
   useEffect(() => {
-    if (mapRef.current && !map) {
-      const newMap = new window.google.maps.Map(mapRef.current, {
-        center,
-        zoom,
+    if (map) {
+      // Create the marker once the map is available
+      new google.maps.Marker({
+        position: center,
+        map: map,
       });
-      setMap(newMap);
-
-      // Creating the AdvancedMarkerElement
-      if (newMap) {
-        new google.maps.marker.AdvancedMarkerElement({
-          position: center,
-          map: newMap,
-        });
-      }
     }
-  }, [center, zoom]);
+  }, [map, center]); // Re-run whenever the map or center changes
 
   return (
     <GoogleMap
